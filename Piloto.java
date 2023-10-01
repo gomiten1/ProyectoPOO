@@ -2,7 +2,7 @@ public class Piloto {
     private String nombre;
     private String nacionalidad;
     private Equipo equipo;
-    private int puntos;
+    private int puntos = 0;
     private int posicion;
     static int numPilotos;
 
@@ -15,7 +15,14 @@ public class Piloto {
 
 
     public void setPuntos(int puntos) {
-        this.puntos = puntos;
+        this.puntos += puntos;
+    }
+
+    
+
+
+    public int getPuntos() {
+        return puntos;
     }
 
 
