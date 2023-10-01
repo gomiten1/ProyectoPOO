@@ -1,8 +1,9 @@
-import java.util.Scanner;
+import java.util. *;
 
 public class Main {
     public static void main(String[] args) {
         int opcion;
+        int opcion2;
         Scanner input = new Scanner(System.in);
 
         System.out.println("Bienvenido al sistema de Formula 1");
@@ -21,29 +22,18 @@ public class Main {
 
             switch (opcion){
                 case 1: //Crear un campeonato 
-                    //Registrar pilotos
-                    System.out.println("Ingrese el nombre del piloto");
-                    String nombrePiloto = input.nextLine();
-                    System.out.println("Ingrese la nacionalidad del piloto");
-                    String nacionacilidadPilota = input.nextLine();
+                    //Lista de equipos
+                    LinkedList<Equipo> equipos = new LinkedList<>();
 
-                    //Equipo
-                    System.out.println("Ingrese el nombre del equipo");
-                    String nombreEquipo = input.nextLine();
-
-                    System.out.println("Ingrese el pais del equipo");
-                    String paisEquipo = input.nextLine();
-
-                    System.out.println("Ingrese el coche del equipo");
-                    String cocheEquipo = input.nextLine();
-
-
+                    do {
+                        System.out.println("Seleccione el numero 0 cuando ya no quiera agregar mas equipos");
+                        opcion2 = input.nextInt();
+                        
+                        
+                    } while (opcion2 != 0);
                     
-
-
-
-
                 break;
+
 
                 case 2: 
                 break;

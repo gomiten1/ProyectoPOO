@@ -20,6 +20,7 @@ public class Carrera {
         numCarreras++;
     }
 
+    //Cambiar para agregar los equipos con sus pilotos
     public void aniadirPilotos(Piloto piloto){
         this.pilotos.add(piloto);
     }
