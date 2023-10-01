@@ -23,7 +23,7 @@ public class Piloto {
         this.posicion = posicion;
     }
 
-    public String toString(){
+    public String toString(){ //toString()= convierte un objeto en cadena de texto
         String imprimir;
         imprimir = "Nombre: " + nombre +
                     ", nacionalidad: " + nacionalidad +

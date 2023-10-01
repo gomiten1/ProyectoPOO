@@ -1,12 +1,12 @@
-import java.util.LinkedList;
+import java.util.LinkedList;//Lista doblemente enlazada
 
-import java.util.TreeSet;
+import java.util.TreeSet; //Conjunto ordenado en un árbol binario de búsqueda
 
 public class Equipo {
     private String nombre;
     private String pais;
     private String coche;
-    private LinkedList<String> crew = new LinkedList<>();
+    private LinkedList<String> crew = new LinkedList<>(); //Lista
     static int numEquipos = 0;
 
     public Equipo(String nombre, String pais, TreeSet<Piloto> pilotos, String coche) {

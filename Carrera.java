@@ -1,6 +1,6 @@
-import java.util.LinkedList;
+import java.util.LinkedList;//Lista doblemente ligada
 
-import java.util.TreeSet;
+import java.util.TreeSet;//Conjunto
 
 public class Carrera {
     String nombre;
