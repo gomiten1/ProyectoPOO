@@ -6,10 +6,10 @@ public class Equipo {
     private String nombre;
     private String pais;
     private String coche;
-    private LinkedList<String> crew = new LinkedList<>(); //Lista
+    private LinkedList<String> crew = new LinkedList<>(); //Lista    
     static int numEquipos = 0;
 
-    public Equipo(String nombre, String pais, TreeSet<Piloto> pilotos, String coche) {
+    public Equipo(String nombre, String pais, String coche) {
         this.nombre = nombre;
         this.pais = pais;
         this.coche = coche;
@@ -18,6 +18,10 @@ public class Equipo {
 
     public void aniadirCrew(String miembroCrew){
         this.crew.add(miembroCrew);
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public String toString(){

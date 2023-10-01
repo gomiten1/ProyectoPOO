@@ -23,6 +23,19 @@ public class Piloto {
         this.posicion = posicion;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+
     public String toString(){ //toString()= convierte un objeto en cadena de texto
         String imprimir;
         imprimir = "Nombre: " + nombre +
