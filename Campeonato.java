@@ -49,6 +49,11 @@ public class Campeonato {
         
     }
 
+    public void setDatos(TreeMap<Carrera, LocalDateTime> calendario, TreeMap<Integer,Carrera> clavesCarreras){
+        this.calendario = calendario;
+        this.clavesCarreras = clavesCarreras;
+    }
+
     public void finalizarCampeonato(){
         this.listarCarreras();
         this.mostrarPodio();

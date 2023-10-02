@@ -13,7 +13,7 @@ public class Main {
         TreeMap<Integer, Carrera> carreras = new TreeMap<>();
         TreeMap<Carrera, LocalDateTime> calendario = new TreeMap<>();
 
-        //Campeonato campeonato= new Campeonato();
+        Campeonato campeonato= new Campeonato();
         System.out.println("Bienvenido al sistema de Formula 1");
         do {
             System.out.println("\nMENU");
@@ -164,7 +164,7 @@ public class Main {
                         
                     }
 
-                    Campeonato campeonato = new Campeonato(carreras, calendario);
+                    campeonato.setDatos(calendario, carreras);
 
                 break;
 
@@ -174,6 +174,12 @@ public class Main {
                 break;
 
                 case 4:
+                    int claveRealizar;
+                    for (int b = 0; b< Carrera.numCarreras; b++){
+                        System.out.println("Clave de la carrera a realizar: ");
+                        claveRealizar = input.nextInt();
+                        campeonato.avanzarCampeonato(claveRealizar);
+                    }
                     System.out.println("El campeonato finalizo:");
                     campeonato.finalizarCampeonato();//Muestra la lista de carreras y el podio
                 break;
