@@ -26,7 +26,7 @@ public class Carrera {
         numCarreras++;
     }
 
-    //Cambiar para agregar los equipos con sus pilotos
+  
     public void aniadirPilotos(Piloto piloto){
         this.pilotos.add(piloto);
     }
@@ -34,8 +34,6 @@ public class Carrera {
     public void aniadirPistas(Pista pista){
         this.pistas.addLast(pista);
     }
-
-    
 
     public int getClave() {
         return clave;
@@ -91,13 +89,6 @@ public class Carrera {
             System.out.println(piloto.toString());
         }
     }
-
-
-
-    
-
-
-    
 
 
 }
