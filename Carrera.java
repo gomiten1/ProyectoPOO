@@ -91,4 +91,13 @@ public class Carrera {
     }
 
 
+    public void setDatos(String nombre, String pais, int clave, int puntos) {
+        this.nombre = nombre;
+        this.pais = pais;
+        this.clave = clave;
+        this.puntos = puntos;
+    }
+
+    
+
 }

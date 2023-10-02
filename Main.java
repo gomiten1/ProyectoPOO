@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -8,8 +10,10 @@ public class Main {
         ArrayList<Equipo> equipos = new ArrayList<>();
         HashSet<Piloto> pilotos = new HashSet<>();
         LinkedList<Pista> pistas = new LinkedList<>();
+        TreeMap<Integer, Carrera> carreras = new TreeMap<>();
+        TreeMap<Carrera, LocalDateTime> calendario = new TreeMap<>();
 
-        Campeonato campeonato= new Campeonato();
+        //Campeonato campeonato= new Campeonato();
         System.out.println("Bienvenido al sistema de Formula 1");
         do {
             System.out.println("\nMENU");
@@ -70,7 +74,7 @@ public class Main {
 
                     System.out.println("\nPISTAS: ");
                     //Registro pistas
-                    System.out.print("\nIngrese el numero de carreras: "); //Pensado que cada carrera tiene una pista diferencte
+                    System.out.print("\nIngrese el numero de pistas: "); //Pensado que cada carrera tiene una pista diferencte
                     int numCarreras = input.nextInt();
                     input.nextLine(); 
 
@@ -100,38 +104,67 @@ public class Main {
                 break;
 
                 case 2: //Asignar una pista, pilotos y una clave a la carrera
-                    if (equipos.isEmpty() || pilotos.isEmpty() || pistas.isEmpty()) {
-                        System.out.println("Debes registrar equipos, pilotos y pistas antes de iniciar una carrera.");
-                    } else {
-                        input.nextLine();
-                        System.out.print("Nombre de la carrera: ");
-                        String nombreCarrera = input.nextLine();
-                        System.out.print("Pais de la carrera: ");
-                        String paisCarrera = input.nextLine();
-                        System.out.print("Clave de la carrera: ");
-                        int claveCarrera = input.nextInt();
-                        System.out.print("Puntos: ");
-                        int puntosCarrera = input.nextInt();
-                         
+                    int carrerasIngresar;
+                    Pista pistaSeleccionada;
+                    int randomIndex;
+                    Carrera carrera;
+                    int claveCarrera;
+                    int puntosCarrera;
+                    String pasarFecha;
+                    LocalDateTime fechaCarrera;
+                    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+                    System.out.println("Ingrese la cantidad de carreras a iniciar:");
+                    carrerasIngresar = input.nextInt();
+                    for (int i = 0; i<carrerasIngresar; i++){
+                        if (equipos.isEmpty() || pilotos.isEmpty() || pistas.isEmpty()) {
+                            System.out.println("Debes registrar equipos, pilotos y pistas antes de iniciar una carrera.");
+                        } else {
+                            
+                            input.nextLine();
+                            System.out.print("Nombre de la carrera: ");
+                            String nombreCarrera = input.nextLine();
+                            System.out.print("Pais de la carrera: ");
+                            String paisCarrera = input.nextLine();
+                            System.out.print("Clave de la carrera: ");
+                            claveCarrera = input.nextInt();
+                            System.out.print("Puntos: ");
+                            puntosCarrera = input.nextInt();
+                            System.out.println("Ingresa la fecha de la carrera con el formato (dd/MM/yyyy HH:mm)");
+                            pasarFecha = input.nextLine();
+                            fechaCarrera = LocalDateTime.parse(pasarFecha, formato);
 
-                        Carrera carrera = new Carrera(nombreCarrera, paisCarrera, claveCarrera, puntosCarrera); 
-            
-                        // Agregar todos los pilotos al conjunto de pilotos de la carrera
-                        for (Piloto piloto : pilotos) {
-                            carrera.aniadirPilotos(piloto);
+                            //if(carreras.isEmpty()){
+                               carrera = new Carrera(nombreCarrera, paisCarrera, claveCarrera, puntosCarrera); 
+                            //} else {
+                                //carrera.setDatos(nombreCarrera, paisCarrera, claveCarrera, puntosCarrera);
+                            //}
+
+                
+                            // Agregar todos los pilotos al conjunto de pilotos de la carrera
+                            for (Piloto piloto : pilotos) {
+                                carrera.aniadirPilotos(piloto);
+                            }
+                
+                            // Seleccionar aleatoriamente una pista de la lista de pistas y agregarla a la carrera
+                            randomIndex = ThreadLocalRandom.current().nextInt(0, pistas.size());
+                            pistaSeleccionada = pistas.get(randomIndex);
+                            carrera.aniadirPistas(pistaSeleccionada);
+                
+                            System.out.println("\nCarrera iniciada con exito.");
+
+                            String cadena= carrera.toString();
+                            System.out.println(cadena);
+                            
+                            carreras.put(carrera.getClave(), carrera);
+                            calendario.put(carrera, fechaCarrera);
+                            
+                        
                         }
-            
-                        // Seleccionar aleatoriamente una pista de la lista de pistas y agregarla a la carrera
-                        int randomIndex = ThreadLocalRandom.current().nextInt(0, pistas.size());
-                        Pista pistaSeleccionada = pistas.get(randomIndex);
-                        carrera.aniadirPistas(pistaSeleccionada);
-            
-                        System.out.println("\nCarrera iniciada con exito.");
 
-                        String cadena= carrera.toString();
-                        System.out.println(cadena);
-                    
+                        
                     }
+
+                    Campeonato campeonato = new Campeonato(carreras, calendario);
 
                 break;
 
