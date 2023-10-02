@@ -9,6 +9,7 @@ public class Main {
         HashSet<Piloto> pilotos = new HashSet<>();
         LinkedList<Pista> pistas = new LinkedList<>();
 
+        Campeonato campeonato= new Campeonato();
         System.out.println("Bienvenido al sistema de Formula 1");
         do {
             System.out.println("\nMENU");
@@ -91,7 +92,7 @@ public class Main {
 
                     System.out.println("--------------------------------");
                     System.out.println("\nRegistro de la pistas: \n");
-                    for (Pista pista : pistas){                    
+                    for (Pista pista : pistas){                                                                
                         String cadena= pista.toString();
                         System.out.println(cadena);
                         
@@ -100,25 +101,71 @@ public class Main {
 
                 case 2: //Asignar una pista, pilotos y una clave a la carrera
                     if (equipos.isEmpty() || pilotos.isEmpty() || pistas.isEmpty()) {
-                    System.out.println("Debes registrar equipos, pilotos y pistas antes de iniciar una carrera.");
+                        System.out.println("Debes registrar equipos, pilotos y pistas antes de iniciar una carrera.");
                     } else {
+                        input.nextLine();
+                        System.out.print("Nombre de la carrera: ");
+                        String nombreCarrera = input.nextLine();
+                        System.out.print("Pais de la carrera: ");
+                        String paisCarrera = input.nextLine();
+                        System.out.print("Clave de la carrera: ");
+                        int claveCarrera = input.nextInt();
+                        System.out.print("Puntos: ");
+                        int puntosCarrera = input.nextInt();
+                         
+
+                        Carrera carrera = new Carrera(nombreCarrera, paisCarrera, claveCarrera, puntosCarrera); 
+            
+                        // Agregar todos los pilotos al conjunto de pilotos de la carrera
+                        for (Piloto piloto : pilotos) {
+                            carrera.aniadirPilotos(piloto);
+                        }
+            
+                        // Seleccionar aleatoriamente una pista de la lista de pistas y agregarla a la carrera
+                        int randomIndex = ThreadLocalRandom.current().nextInt(0, pistas.size());
+                        Pista pistaSeleccionada = pistas.get(randomIndex);
+                        carrera.aniadirPistas(pistaSeleccionada);
+            
+                        System.out.println("\nCarrera iniciada con exito.");
+
+                        String cadena= carrera.toString();
+                        System.out.println(cadena);
                     
-                    Carrera carrera = new Carrera("NombreCarrera", "PaisCarrera", 1, 10); // Ajusta los valores según tus necesidades
-
-                    //Agregar los pilotos al conjunto de la carrera
-                    for (Piloto piloto : pilotos) {
-                        carrera.aniadirPilotos(piloto);
-                    }
-
-                    //Sacar una pista aleatoriamnete y agregarla a la lista de la carrera
-                    int indice = ThreadLocalRandom.current().nextInt(0, pistas.size());
-                    Pista pistaSeleccionada = pistas.get(indice);
-                    carrera.aniadirPistas(pistaSeleccionada);
-
-                    System.out.println("Carrera iniciada con exito.");
                     }
 
                 break;
+
+                case 3:
+                    System.out.println("Carreras anteriores:");
+                    campeonato.consultarCampeonato();
+                break;
+
+                case 4:
+                    System.out.println("El campeonato finalizo:");
+                    campeonato.finalizarCampeonato();//Muestra la lista de carreras y el podio
+                break;
+
+                case 5:
+
+                    System.out.println("Informacion completa de los pilotos:");
+                    for (Piloto piloto : pilotos) {
+                        String cadena= piloto.toString(); 
+                        System.out.println(cadena);
+                    
+                    }
+
+                    System.out.println("Resultado de las carreras:");
+
+                    System.out.println("Posiciones del campeonato:");
+                    //Mostrar podio
+                break;
+
+                case 6:
+                    System.out.println("Saliendo...");
+                break;
+
+                default:
+                    System.out.println("Ingresa una opcion valida");
 
             }
         } while (opcion != 6);

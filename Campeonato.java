@@ -13,6 +13,11 @@ public class Campeonato {
     private TreeMap<Integer, Carrera> clavesCarreras;
     private TreeMap<Carrera, LocalDateTime> calendario;
 
+    //Constructor
+    public Campeonato(){
+        //Pendiente
+    }
+
     public Campeonato(TreeMap clavesCarreras, TreeMap calendario){
         this.clavesCarreras = clavesCarreras;
         this.calendario = calendario;
