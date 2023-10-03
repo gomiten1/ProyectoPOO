@@ -112,7 +112,7 @@ public class Main {
                     int puntosCarrera;
                     String pasarFecha;
                     LocalDateTime fechaCarrera;
-                    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+                    DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                     System.out.println("Ingrese la cantidad de carreras a iniciar:");
                     carrerasIngresar = input.nextInt();
                     for (int i = 0; i<carrerasIngresar; i++){
@@ -129,7 +129,8 @@ public class Main {
                             claveCarrera = input.nextInt();
                             System.out.print("Puntos: ");
                             puntosCarrera = input.nextInt();
-                            System.out.println("Ingresa la fecha de la carrera con el formato (dd/MM/yyyy HH:mm): ");
+                            System.out.println("Ingresa la fecha de la carrera con el formato (yyyy-MM-dd HH:mm): ");
+                            input.nextLine();
                             pasarFecha = input.nextLine();
                             fechaCarrera = LocalDateTime.parse(pasarFecha, formato);
 

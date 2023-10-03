@@ -1,5 +1,6 @@
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.Map;
@@ -12,6 +13,7 @@ public class Campeonato {
     private LinkedList<Carrera> carrerasPrevias = new LinkedList<>();
     private TreeMap<Integer, Carrera> clavesCarreras;
     private TreeMap<Carrera, LocalDateTime> calendario;
+    private LinkedList<Piloto> pilotosCampeonato;
 
     //Constructor
     public Campeonato(){
@@ -29,9 +31,14 @@ public class Campeonato {
     }
 
     public void listarCarreras(){
+        LocalDateTime fecha;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         Set<Map.Entry<Integer, Carrera> > elementos = clavesCarreras.entrySet();
         for (Map.Entry<Integer, Carrera> elemento: elementos){
-            System.out.println(elemento.getValue().listarFinalizada()); 
+            System.out.println(elemento.getValue().listarFinalizada());
+            System.out.println("Fecha: ");
+            fecha = calendario.get(elemento.getValue());
+            System.out.println(fecha.format(formatter));
         }
     }
 
@@ -54,13 +61,25 @@ public class Campeonato {
         this.clavesCarreras = clavesCarreras;
     }
 
-    public void finalizarCampeonato(){
-        this.listarCarreras();
-        this.mostrarPodio();
-    }
 
-    public void mostrarPodio(){
-        //tengo que pensar en este metodo
+    public void mostrarPodio(LinkedList<Piloto> pilotos){
+        this.pilotosCampeonato = pilotos;
+        Piloto auxPiloto;
+        int aux;
+        for(int i = 1; i<= 3; i++){
+            aux = 0;
+            for(Piloto piloto : pilotosCampeonato){
+                if(piloto.getPuntos() > aux){
+                   auxPiloto = piloto; 
+                }
+            }
+
+            System.out.println("Lugar " + i + " : " + "\n");
+            System.out.println(auxPiloto.toString());
+
+            pilotosCampeonato.remove(auxPiloto);
+            
+        }
     }
 
 
