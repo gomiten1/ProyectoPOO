@@ -11,9 +11,7 @@ public class Pista {
         numPistas++;
     }
 
-    public int getNumPistas() {
-        return numPistas;
-    }
+   
 
     public String toString(){
         String string = "Localizacion: " + localizacion + ", kilometraje: " + kilometraje + ", #vueltas: " + numVueltas;
