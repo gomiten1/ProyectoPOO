@@ -39,6 +39,13 @@ public class Carrera {
         return clave;
     }
 
+    
+
+    public LinkedList<Piloto> getPilotosFinalizada() {
+        return pilotosFinalizada;
+    }
+
+
     public void finalizarCarrera(){
         int aux;
         Piloto auxPiloto;

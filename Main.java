@@ -12,6 +12,7 @@ public class Main {
         LinkedList<Pista> pistas = new LinkedList<>();
         TreeMap<Integer, Carrera> carreras = new TreeMap<>();
         TreeMap<Carrera, LocalDateTime> calendario = new TreeMap<>();
+        LinkedList<Piloto> pilotosFinalizar = new LinkedList<>();
 
         Campeonato campeonato= new Campeonato();
         System.out.println("Bienvenido al sistema de Formula 1");
@@ -57,6 +58,7 @@ public class Main {
                             String nacionalidadPiloto = input.nextLine();
             
                             Piloto piloto = new Piloto(nombrePiloto, nacionalidadPiloto, equipo);
+                            pilotosFinalizar.add(piloto);
                             pilotos.add(piloto);
                         }
                         
@@ -182,7 +184,7 @@ public class Main {
                         campeonato.avanzarCampeonato(claveRealizar);
                     }
                     System.out.println("El campeonato finalizo:");
-                    campeonato.listarCarreras();//Muestra la lista de carreras y el podio
+                    campeonato.mostrarPodio(pilotosFinalizar);//Muestra la lista de carreras y el podio
                 break;
 
                 case 5:
