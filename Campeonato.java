@@ -1,6 +1,7 @@
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.Map;
@@ -12,7 +13,7 @@ public class Campeonato {
     
     private LinkedList<Carrera> carrerasPrevias = new LinkedList<>();
     private TreeMap<Integer, Carrera> clavesCarreras;
-    private TreeMap<Carrera, LocalDateTime> calendario;
+    private LinkedHashMap<Carrera, LocalDateTime> calendario;
     private LinkedList<Piloto> pilotosCampeonato;
 
     //Constructor
@@ -20,7 +21,7 @@ public class Campeonato {
         //Pendiente
     }
 
-    public Campeonato(TreeMap clavesCarreras, TreeMap calendario){
+    public Campeonato(TreeMap clavesCarreras, LinkedHashMap calendario){
         this.clavesCarreras = clavesCarreras;
         this.calendario = calendario;
     }
@@ -56,7 +57,7 @@ public class Campeonato {
         
     }
 
-    public void setDatos(TreeMap<Carrera, LocalDateTime> calendario, TreeMap<Integer,Carrera> clavesCarreras){
+    public void setDatos(LinkedHashMap<Carrera, LocalDateTime> calendario, TreeMap<Integer,Carrera> clavesCarreras){
         this.calendario = calendario;
         this.clavesCarreras = clavesCarreras;
     }

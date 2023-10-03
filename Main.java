@@ -11,7 +11,7 @@ public class Main {
         HashSet<Piloto> pilotos = new HashSet<>();
         LinkedList<Pista> pistas = new LinkedList<>();
         TreeMap<Integer, Carrera> carreras = new TreeMap<>();
-        TreeMap<Carrera, LocalDateTime> calendario = new TreeMap<>();
+        LinkedHashMap<Carrera, LocalDateTime> calendario = new LinkedHashMap<>();
         LinkedList<Piloto> pilotosFinalizar = new LinkedList<>();
 
         Campeonato campeonato= new Campeonato();
