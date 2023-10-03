@@ -1,6 +1,6 @@
 import java.util.HashSet;
 import java.util.LinkedList;//Lista doblemente ligada
-
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Carrera {
@@ -13,6 +13,7 @@ public class Carrera {
     private int clave;
     boolean finalizada = false;
     static int numCarreras = 0;
+    Random random = new Random();
 
 
     public Carrera(String nombre, String pais, int clave, int puntos) {
@@ -91,26 +92,14 @@ public class Carrera {
         System.out.println("Nombre de la carrera: " + nombre +
                             ", pais: " + pais + 
                             ", clave: " + clave);
-        
-        int i = 1;
+
         for (Piloto piloto: pilotosFinalizada){
-            System.out.println("Posicion: " + i);
+            int numeroAleatorio = random.nextInt(100); // Cambia el rango según tus necesidades
+            System.out.println("\nPosicion: " + numeroAleatorio);
             System.out.println(piloto.toString());
         }
         
     }
-
-    /*public void listarFinalizada(){
-        System.out.println("Nombre de la carrera: " + nombre +
-                            ", pais: " + pais + 
-                            ", clave: " + clave );
-        
-        int i = 1;
-        for (Piloto piloto: pilotosFinalizada){
-            System.out.println("Posicion: " + i);
-            System.out.println(piloto.toString());
-        }
-    }*/
 
 
     public void setDatos(String nombre, String pais, int clave, int puntos) {

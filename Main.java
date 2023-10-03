@@ -115,11 +115,11 @@ public class Main {
                     String pasarFecha;
                     LocalDateTime fechaCarrera;
                     DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                    System.out.println("Ingrese la cantidad de carreras a iniciar:");
+                    System.out.println("\nIngrese la cantidad de carreras a iniciar:");
                     carrerasIngresar = input.nextInt();
                     for (int i = 0; i<carrerasIngresar; i++){
                         if (equipos.isEmpty() || pilotos.isEmpty() || pistas.isEmpty()) {
-                            System.out.println("Debes registrar equipos, pilotos y pistas antes de iniciar una carrera.");
+                            System.out.println("\nDebes registrar equipos, pilotos y pistas antes de iniciar una carrera.");
                         } else {
                             
                             input.nextLine();
@@ -174,47 +174,46 @@ public class Main {
                 case 3:
                     int claveRealizar;
                     for (int b = 0; b< Carrera.numCarreras; b++){
-                        System.out.println("Clave de la carrera a realizar: ");
+                        System.out.print("\nClave de la carrera a realizar: \n");
                         claveRealizar = input.nextInt();
                         campeonato.avanzarCampeonato(claveRealizar);
                     }
-                    System.out.println("El campeonato finalizo:");
-                    //campeonato.mostrarPodio(pilotosFinalizar);//Muestra la lista de carreras y el podio
+                    System.out.println("\nEl campeonato finalizo con exito");
+                    
                 break;
 
                 case 4:
-                    System.out.println("Carreras anteriores:");
+                    System.out.println("\nCarreras anteriores:\n");
                     campeonato.listarCarreras();
+                    System.out.println();
                 break;
 
                 case 5:
 
-                    System.out.println("Informacion completa de los pilotos:");
+                    System.out.println("\nInformacion completa de los pilotos:");
                     for (Piloto piloto : pilotos) {
                         String cadena= piloto.toString(); 
                         System.out.println(cadena);
                     }
 
-                    System.out.println("Resultado de las carreras");
-                    System.out.println("PODIO:");
-                    //Mostrar podio
+                    System.out.println("\nResultado de las carreras");
+                    System.out.println("PODIO:\n");
+                    campeonato.mostrarPodio(pilotosFinalizar);
 
-                    System.out.println("Posiciones del campeonato:");
+                    System.out.println("\nPosiciones del campeonato:\n");
+                    for (Map.Entry<Integer, Carrera> entry : carreras.entrySet()) {
+                        Carrera carrera1 = entry.getValue(); // Obtener la carrera del TreeMap
+                        carrera1.listarFinalizada();
+                    }
 
-                    for (Piloto piloto : pilotos) {
-                        System.out.println("Nombre del piloto: " + piloto.getNombre());
-                        System.out.println("Posicion: " + piloto.getPosicion());
-                        System.out.println(); 
-                    
-                    }                    
                 break;
 
                 case 6:
-                    System.out.println("Saliendo...");
+                    System.out.println("\nSaliendo...");
                 break;
 
                 default:
-                    System.out.println("Ingresa una opcion valida");
+                    System.out.println("\nIngresa una opcion valida");
 
             }
         } while (opcion != 6);

@@ -18,7 +18,7 @@ public class Campeonato {
 
     //Constructor
     public Campeonato(){
-        //Pendiente
+        
     }
 
     public Campeonato(TreeMap clavesCarreras, LinkedHashMap calendario){

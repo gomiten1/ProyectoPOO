@@ -53,7 +53,6 @@ public class Piloto {
         imprimir = "Nombre: " + nombre +
                     ", nacionalidad: " + nacionalidad +
                     ", puntos: " + puntos +
-                    ", posicion: " + posicion +
                     ", equipo: " + equipo.toString();
         return imprimir;
     }
