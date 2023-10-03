@@ -6,7 +6,11 @@ public class Piloto {
     private int posicion;
     static int numPilotos;
 
+    public Piloto(){
 
+    }
+
+    
     public Piloto(String nombre, String nacionalidad, Equipo equipo) {
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;

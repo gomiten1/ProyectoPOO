@@ -67,7 +67,7 @@ public class Campeonato {
 
     public void mostrarPodio(LinkedList<Piloto> pilotos){
         this.pilotosCampeonato = pilotos;
-        Piloto auxPiloto;
+        Piloto auxPiloto = new Piloto();
         int aux;
         for(int i = 1; i<= 3; i++){
             aux = 0;
