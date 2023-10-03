@@ -62,6 +62,8 @@ public class Campeonato {
     }
 
 
+
+
     public void mostrarPodio(LinkedList<Piloto> pilotos){
         this.pilotosCampeonato = pilotos;
         Piloto auxPiloto;
@@ -79,6 +81,10 @@ public class Campeonato {
 
             pilotosCampeonato.remove(auxPiloto);
             
+        }
+
+        for (Carrera previa : carrerasPrevias){
+            System.out.println(previa.toString());
         }
     }
 

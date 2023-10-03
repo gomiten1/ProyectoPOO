@@ -182,7 +182,7 @@ public class Main {
                         campeonato.avanzarCampeonato(claveRealizar);
                     }
                     System.out.println("El campeonato finalizo:");
-                    campeonato.finalizarCampeonato();//Muestra la lista de carreras y el podio
+                    campeonato.listarCarreras();//Muestra la lista de carreras y el podio
                 break;
 
                 case 5:
