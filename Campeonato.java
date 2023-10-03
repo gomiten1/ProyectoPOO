@@ -77,7 +77,7 @@ public class Campeonato {
                 }
             }
 
-            System.out.println("Lugar " + i + " : " + "\n");
+            System.out.println("\nLugar " + i + " :");
             System.out.println(auxPiloto.toString());
 
             pilotosCampeonato.remove(auxPiloto);
