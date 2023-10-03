@@ -1,6 +1,6 @@
 import java.util.HashSet;
 import java.util.LinkedList;//Lista doblemente ligada
-import java.util.TreeSet;//Conjunto
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Carrera {
