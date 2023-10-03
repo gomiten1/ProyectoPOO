@@ -21,8 +21,8 @@ public class Main {
             System.out.println("1. Crear un campeonato");
             System.out.println("Calendario de carreras");
             System.out.println("2. Iniciar una carrera ");
-            System.out.println("3. Consultar carreras anteriores");
-            System.out.println("4. Iniciar y finalizar un campeonato");
+            System.out.println("3. Iniciar y finalizar un campeonato");
+            System.out.println("4. Consultar carreras anteriores");
             System.out.println("5. Informacion sobre los elementos");
             System.out.println("6. Salir");
 
@@ -172,11 +172,6 @@ public class Main {
                 break;
 
                 case 3:
-                    System.out.println("Carreras anteriores:");
-                    campeonato.consultarCampeonato();
-                break;
-
-                case 4:
                     int claveRealizar;
                     for (int b = 0; b< Carrera.numCarreras; b++){
                         System.out.println("Clave de la carrera a realizar: ");
@@ -184,7 +179,12 @@ public class Main {
                         campeonato.avanzarCampeonato(claveRealizar);
                     }
                     System.out.println("El campeonato finalizo:");
-                    campeonato.mostrarPodio(pilotosFinalizar);//Muestra la lista de carreras y el podio
+                    //campeonato.mostrarPodio(pilotosFinalizar);//Muestra la lista de carreras y el podio
+                break;
+
+                case 4:
+                    System.out.println("Carreras anteriores:");
+                    campeonato.listarCarreras();
                 break;
 
                 case 5:
@@ -195,11 +195,18 @@ public class Main {
                         System.out.println(cadena);
                     }
 
-                    System.out.println("Resultado de las carreras:");
-                    campeonato.listarCarreras();
+                    System.out.println("Resultado de las carreras");
+                    System.out.println("PODIO:");
+                    //Mostrar podio
 
                     System.out.println("Posiciones del campeonato:");
-                    //Mostrar podio
+
+                    for (Piloto piloto : pilotos) {
+                        System.out.println("Nombre del piloto: " + piloto.getNombre());
+                        System.out.println("Posicion: " + piloto.getPosicion());
+                        System.out.println(); 
+                    
+                    }                    
                 break;
 
                 case 6:

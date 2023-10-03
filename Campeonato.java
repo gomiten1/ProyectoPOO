@@ -36,7 +36,7 @@ public class Campeonato {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         Set<Map.Entry<Integer, Carrera> > elementos = clavesCarreras.entrySet();
         for (Map.Entry<Integer, Carrera> elemento: elementos){
-            System.out.println(elemento.getValue().listarFinalizada());
+            System.out.println(elemento.getValue().toString());
             System.out.println("Fecha: ");
             fecha = calendario.get(elemento.getValue());
             System.out.println(fecha.format(formatter));

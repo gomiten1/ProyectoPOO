@@ -48,7 +48,7 @@ public class Carrera {
 
     public void finalizarCarrera(){
         int aux;
-        Piloto auxPiloto;
+        Piloto auxPiloto= null; //Agregue = null
         for(int i = 0; i < 10; i++){
             int rand = ThreadLocalRandom.current().nextInt(pilotos.size());
             int j = 0;
@@ -68,6 +68,8 @@ public class Carrera {
             for(Piloto piloto : pilotos){
                 if(piloto.getPuntos() > aux){
                    auxPiloto = piloto; 
+                   //Agregue
+                   aux = piloto.getPuntos();
                 }
             }
 
@@ -85,17 +87,17 @@ public class Carrera {
         return imprimir;
     }
 
-    public String listarFinalizada(){
-        String imprimir = "Nombre de la carrera: " + nombre +
+    public void listarFinalizada(){
+        System.out.println("Nombre de la carrera: " + nombre +
                             ", pais: " + pais + 
-                            ", clave: " + clave;
+                            ", clave: " + clave);
         
         int i = 1;
         for (Piloto piloto: pilotosFinalizada){
             System.out.println("Posicion: " + i);
             System.out.println(piloto.toString());
         }
-        return imprimir;
+        
     }
 
     /*public void listarFinalizada(){
