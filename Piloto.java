@@ -18,9 +18,6 @@ public class Piloto {
         this.puntos += puntos;
     }
 
-    
-
-
     public int getPuntos() {
         return puntos;
     }
@@ -28,6 +25,10 @@ public class Piloto {
 
     public void setPosicion(int posicion) {
         this.posicion = posicion;
+    }
+
+    public int getPosicion(){
+        return posicion;
     }
 
     public String getNombre() {

@@ -21,8 +21,8 @@ public class Main {
             System.out.println("Calendario de carreras");
             System.out.println("2. Iniciar una carrera ");
             System.out.println("3. Consultar carreras anteriores");
-            System.out.println("4. Finalizar campeonato");
-            System.out.println("5. Opciones para mostrar elementos");
+            System.out.println("4. Iniciar y finalizar un campeonato");
+            System.out.println("5. Informacion sobre los elementos");
             System.out.println("6. Salir");
 
             System.out.print("Por favor, ingresa la opcion elegida: ");
@@ -129,7 +129,7 @@ public class Main {
                             claveCarrera = input.nextInt();
                             System.out.print("Puntos: ");
                             puntosCarrera = input.nextInt();
-                            System.out.println("Ingresa la fecha de la carrera con el formato (dd/MM/yyyy HH:mm)");
+                            System.out.println("Ingresa la fecha de la carrera con el formato (dd/MM/yyyy HH:mm): ");
                             pasarFecha = input.nextLine();
                             fechaCarrera = LocalDateTime.parse(pasarFecha, formato);
 
@@ -190,10 +190,10 @@ public class Main {
                     for (Piloto piloto : pilotos) {
                         String cadena= piloto.toString(); 
                         System.out.println(cadena);
-                    
                     }
 
                     System.out.println("Resultado de las carreras:");
+                    campeonato.listarCarreras();
 
                     System.out.println("Posiciones del campeonato:");
                     //Mostrar podio

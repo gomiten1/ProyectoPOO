@@ -78,7 +78,20 @@ public class Carrera {
         return imprimir;
     }
 
-    public void listarFinalizada(){
+    public String listarFinalizada(){
+        String imprimir = "Nombre de la carrera: " + nombre +
+                            ", pais: " + pais + 
+                            ", clave: " + clave;
+        
+        int i = 1;
+        for (Piloto piloto: pilotosFinalizada){
+            System.out.println("Posicion: " + i);
+            System.out.println(piloto.toString());
+        }
+        return imprimir;
+    }
+
+    /*public void listarFinalizada(){
         System.out.println("Nombre de la carrera: " + nombre +
                             ", pais: " + pais + 
                             ", clave: " + clave );
@@ -88,7 +101,7 @@ public class Carrera {
             System.out.println("Posicion: " + i);
             System.out.println(piloto.toString());
         }
-    }
+    }*/
 
 
     public void setDatos(String nombre, String pais, int clave, int puntos) {

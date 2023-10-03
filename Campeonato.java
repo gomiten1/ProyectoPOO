@@ -31,7 +31,7 @@ public class Campeonato {
     public void listarCarreras(){
         Set<Map.Entry<Integer, Carrera> > elementos = clavesCarreras.entrySet();
         for (Map.Entry<Integer, Carrera> elemento: elementos){
-            System.out.println(elemento.getValue().toString());
+            System.out.println(elemento.getValue().listarFinalizada()); 
         }
     }
 
