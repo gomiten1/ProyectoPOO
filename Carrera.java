@@ -89,7 +89,7 @@ public class Carrera {
     }
 
     public void listarFinalizada(){
-        System.out.println("Nombre de la carrera: " + nombre +
+        System.out.println("\nNombre de la carrera: " + nombre +
                             ", pais: " + pais + 
                             ", clave: " + clave);
 

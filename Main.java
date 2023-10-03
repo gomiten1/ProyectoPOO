@@ -197,7 +197,7 @@ public class Main {
                     }
 
                     System.out.println("\nResultado de las carreras");
-                    System.out.println("PODIO:\n");
+                    System.out.println("PODIO:");
                     campeonato.mostrarPodio(pilotosFinalizar);
 
                     System.out.println("\nPosiciones del campeonato:\n");
